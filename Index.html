@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salve um Animal Hoje | Casa Thereza</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- HERO ULTRA CONVERSÃO -->
+  <header class="bg-gradient-to-r from-green-600 to-green-500 text-white p-10 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold">Eles só têm você agora 🐾</h1>
+    <p class="mt-4 text-lg max-w-2xl mx-auto">Animais resgatados da rua precisam de comida, remédio e abrigo HOJE. Sua ajuda salva vidas reais.</p>
+    <a href="#doar" class="mt-6 inline-block bg-white text-green-700 font-bold px-8 py-4 rounded-2xl shadow-lg text-lg hover:scale-105 transition">DOAR AGORA</a>
+  </header>
+
+  <main class="max-w-5xl mx-auto p-6">
+
+    <!-- VÍDEO / STORY (VIRAL) -->
+    <section class="mb-6 text-center">
+      <h2 class="text-2xl font-bold mb-4">💔 Veja o antes e depois</h2>
+      <div class="bg-black h-56 rounded-2xl"></div>
+      <p class="text-sm mt-2">(adicione aqui um vídeo real para viralizar)</p>
+    </section>
+
+    <!-- PROVA SOCIAL FORTE -->
+    <section class="bg-white p-6 rounded-2xl shadow mb-6 text-center">
+      <h2 class="text-2xl font-bold">+ de 120 vidas salvas</h2>
+      <p class="mt-2">Cada número é um animal que não morreu na rua.</p>
+    </section>
+
+    <!-- DOAÇÃO RÁPIDA -->
+    <section id="doar" class="bg-white p-6 rounded-2xl shadow mb-6 text-center">
+      <h2 class="text-2xl font-bold mb-4">💚 Escolha como ajudar</h2>
+
+      <!-- BOTÕES DE VALOR -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <button onclick="doar(10)" class="bg-green-500 text-white p-4 rounded-xl">R$10</button>
+        <button onclick="doar(25)" class="bg-green-500 text-white p-4 rounded-xl">R$25</button>
+        <button onclick="doar(50)" class="bg-green-500 text-white p-4 rounded-xl">R$50</button>
+        <button onclick="doar(100)" class="bg-green-700 text-white p-4 rounded-xl">R$100</button>
+      </div>
+
+      <!-- PIX + QR CODE -->
+      <div class="bg-gray-100 p-4 rounded-xl inline-block">
+        <p class="text-sm">Chave PIX:</p>
+        <p class="font-mono text-lg" id="pix">SEU-PIX-AQUI</p>
+      </div>
+
+      <div class="mt-4 flex justify-center">
+        <canvas id="qrcode"></canvas>
+      </div>
+
+    </section>
+
+    <!-- URGÊNCIA EXTREMA -->
+    <section class="bg-red-100 p-6 rounded-2xl shadow mb-6 text-center">
+      <h2 class="text-2xl font-bold text-red-600">⚠️ URGENTE</h2>
+      <p class="mt-2">Sem doações nas próximas horas, não teremos ração suficiente.</p>
+    </section>
+
+    <!-- HISTÓRIA EMOCIONAL -->
+    <section class="bg-white p-6 rounded-2xl shadow mb-6">
+      <h2 class="text-2xl font-bold mb-2">🐶 História real</h2>
+      <p>
+        Este cão foi encontrado à beira da morte. Hoje, graças a doações, está vivo e seguro.
+        Mas muitos ainda esperam por ajuda.
+      </p>
+    </section>
+
+    <!-- COMPARTILHAMENTO (VIRAL LOOP) -->
+    <section class="bg-green-100 p-6 rounded-2xl shadow text-center">
+      <h2 class="text-2xl font-bold">📲 Ajude a espalhar</h2>
+      <p class="mt-2">Compartilhe esta página e salve mais vidas.</p>
+      <button onclick="compartilhar()" class="mt-4 bg-green-600 text-white px-6 py-3 rounded-xl">Compartilhar</button>
+    </section>
+
+  </main>
+
+  <footer class="text-center p-4 text-sm text-gray-500">
+    © 2026 Casa Thereza | Anjo dos Animais 🐾
+  </footer>
+
+  <script>
+    const pixKey = "SEU-PIX-AQUI";
+
+    QRCode.toCanvas(document.getElementById('qrcode'), pixKey);
+
+    function doar(valor){
+      alert("Obrigado por ajudar com R$" + valor + "! Use o PIX abaixo 💚");
+    }
+
+    function compartilhar(){
+      if(navigator.share){
+        navigator.share({
+          title: 'Salve um animal hoje',
+          text: 'Ajude a salvar vidas agora',
+          url: window.location.href
+        });
+      } else {
+        alert('Copie o link e compartilhe 💚');
+      }
+    }
+  </script>
+
+</body>
+</html>
