@@ -1,0 +1,10 @@
+# Node (caso evolua depois)
+node_modules/
+
+# Logs
+logs
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
